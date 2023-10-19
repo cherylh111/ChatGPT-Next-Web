@@ -136,7 +136,8 @@ export class ChatGPTApi implements LLMApi {
               } catch {}
 
               if (res.status === 401) {
-                responseTexts.push(Locale.Error.Unauthorized);
+                responseTexts.push("Response error, please try again.");
+                return finish();
               }
 
               if (extraInfo) {
