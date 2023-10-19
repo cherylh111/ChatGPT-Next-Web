@@ -136,7 +136,8 @@ export class ChatGPTApi implements LLMApi {
               } catch {}
 
               if (res.status === 401) {
-                responseTexts.push("Response error, please try again.");
+                responseTexts.push(Locale.Store.Error);
+                responseText = responseTexts.join("\n\n");
                 return finish();
               }
 
